@@ -11,10 +11,7 @@ int count_lines(const char *str)
     int count = 0;
     for (int i = 0; str[i] != '\0'; i++)
     {
-        if (str[i] == '\n')
-        {
-            count++;
-        }
+        if (str[i] == '\n') count++;
     }
 
     return count;
@@ -117,10 +114,7 @@ int main(int argc, char *argv[])
     char backspace_adjust[100];
 
     strcpy(backspace_adjust, "");
-    for (int j = 0; j < num_lines; j++)
-    {
-        strcat(backspace_adjust, "\033[A");
-    }
+    for (int j = 0; j < num_lines; j++) strcat(backspace_adjust, "\033[A");
 
     int i = 0;
     bool first = true;
@@ -128,10 +122,7 @@ int main(int argc, char *argv[])
     {
         for (int j = 0; j < text_files_count; j++)
         {
-            if (!first)
-            {
-                printf("%s", backspace_adjust);
-            }
+            if (!first) printf("%s", backspace_adjust);
 
             printf("%s", text_files[j]);
             first = false;
@@ -145,10 +136,7 @@ int main(int argc, char *argv[])
         i++;
     }
 
-    for (int j = 0; j < text_files_count; j++)
-    {
-        free(text_files[j]);
-    }
+    for (int j = 0; j < text_files_count; j++) free(text_files[j]);
 
     free(text_files);
 
